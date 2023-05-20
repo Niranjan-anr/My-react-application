@@ -14,10 +14,15 @@ function App() {
   const [expenses, setExpenses] = useState(initialItems);
 
   const addExpenseHandler = (expense) => {
-    setExpenses((prevExpenses) => {
-      return [...prevExpenses, expense];
-    });
-  };  
+    const newExpense = {
+      id: Math.random().toString(),
+      name: expense.title,
+      price: expense.price,
+      date: expense.date,
+    };
+    setExpenses((prevExpenses) => [...prevExpenses, newExpense]);
+  };
+  
  
   return (
     <div className="App">
